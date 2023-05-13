@@ -1,6 +1,5 @@
 {% set name = "mono" %}
-{% set version = "6.12.0.90" %}
-{% set sha256 = "51de5c02ad511333f93ff585bca54c8784de35af4ff27b759d16b46c4402cdac" %}
+{% set version = "6.12.0.182" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +7,12 @@ package:
 
 source:
   url: https://download.mono-project.com/sources/mono/mono-{{ version }}.tar.xz
-  sha256: {{ sha256 }}
+  sha256: 57366a6ab4f3b5ecf111d48548031615b3a100db87c679fc006e8c8a4efd9424
 
 build:
   number: 0
-  skip: true  # [win]
+  # We skip Windows because it requires Cygwin or WSL, and osx-arm64 is not supported yet.
+  skip: true  # [win or (osx and arm64)]
 
 requirements:
   build:
@@ -27,7 +27,7 @@ requirements:
     - python
     - make       # [unix]
   host:
-    - zlib
+    - zlib {{ zlib }}
 
 test:
   commands:
