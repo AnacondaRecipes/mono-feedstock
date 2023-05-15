@@ -13,7 +13,8 @@ build:
   number: 0
   # We skip Windows because it requires Cygwin or WSL, and osx-arm64 is not supported yet.
   # We skip others because they are community-supported and don't get upstream support.
-  skip: True  # [not (osx-64 or linux-64)]
+  skip: True  # [osx-arm64 or win-64]
+  skip: True  # [linux-ppc64le or linux-s390x or linux-aarch64]
 
 requirements:
   build:
@@ -26,7 +27,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python
-    - make       # [unix]
+    - make
   host:
     - zlib {{ zlib }}
 
