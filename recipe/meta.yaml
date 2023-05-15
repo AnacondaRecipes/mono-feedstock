@@ -13,7 +13,7 @@ build:
   number: 0
   # We skip Windows because it requires Cygwin or WSL, and osx-arm64 is not supported yet.
   # We skip others because they are community-supported and don't get upstream support.
-  skip: True  # [not (linux64 or osx-64)]
+  skip: True  # [not (linux64 or (osx and x86_64))]
 
 requirements:
   build:
