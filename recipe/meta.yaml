@@ -12,7 +12,8 @@ source:
 build:
   number: 0
   # We skip Windows because it requires Cygwin or WSL, and osx-arm64 is not supported yet.
-  skip: true  # [win or (osx and arm64)]
+  # We skip others because they are community-supported and don't get upstream support.
+  skip: True  # [not (osx-64 or linux-64)]
 
 requirements:
   build:
@@ -35,15 +36,16 @@ test:
     - mono --help
 
 about:
-  home: http://www.mono-project.com
+  home: https://www.mono-project.com
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: |
     Mono is a software platform designed to allow developers to easily create cross platform applications.
   description: |
     Mono is a software platform designed to allow developers to easily create cross platform applications.
     It is an open source implementation of Microsoft's .NET Framework based on the ECMA standards for C# and the Common Language Runtime.
-  doc_url: http://www.mono-project.com/docs/
+  doc_url: https://www.mono-project.com/docs/
   dev_url: https://github.com/mono/mono
 
 extra:
